@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+bin/
+lib/
+include/
+share/
+*.egg-info/
+.env
+.idea/
+.vscode/
+
+# Django specific
+db.sqlite3
+/media
+/static
+/staticfiles
+
+# Media and Uploads (if you have an uploads folder)
+media/
+
+# My IDE
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Virtual Environment
+# If your virtual environment is not named 'env' or 'venv',
+# add its specific name here, e.g., my_env/
+# For example:
+# my_project_env/
