@@ -21,3 +21,10 @@ This project allows users to add tasks, mark them as complete or incomplete, upd
 - **Backend:** Python, Django
 - **Frontend:** HTML, CSS (Django Templates)
 - **Database:** SQLite3 (default)
+
+---
+
+## 🧑‍🎨 UI/UX
+
+- Styled using [Bootstrap 5](https://getbootstrap.com/)
+- Clean forms, buttons, and card-based task layout
