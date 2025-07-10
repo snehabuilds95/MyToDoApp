@@ -1,37 +1,33 @@
-<h1>   Tasks:  </h1>
+{% extends 'base.html' %}
 
-<form method="POST" action="/">
+{% block content %}
 
+<h1 class="mb-4 text-success">📝 Tasks</h1>
+
+<form method="POST" class="d-flex gap-2 mb-4">
     {% csrf_token %}
-
-    {{TaskForm.title}}
-
-    <input class="btn" type="submit" name="Create Task">
-
+    {{ TaskForm.title }}
+    <button type="submit" class="btn btn-success">Create Task</button>
 </form>
 
 {% for task in tasks %}
-  
-    <p> {{task}} </p>
-
-    {% if task.completed == True %}
-
-       <p> Task Completed: Yes! </p>
-
-    {% else %}
-     
-       <p> Task Completed: No </p>
-
-    {% endif %}
-      
-    <a href="{% url 'update_task' task.id  %}"> Update </a>
-
-    <br> 
-    
-    <a href="{% url 'delete_task' task.id  %}"> Delete </a>
-    
-  <br> 
-    
-   
-
+  <div class="card mb-3 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <p class="card-text">
+        Status:
+        {% if task.completed %}
+          ✅ <em>Completed</em>
+        {% else %}
+          ⏳ <em>Not Completed</em>
+        {% endif %}
+      </p>
+      <a href="{% url 'update_task' task.id %}" class="btn btn-outline-primary btn-sm">✏️ Update</a>
+      <a href="{% url 'delete_task' task.id %}" class="btn btn-outline-danger btn-sm">🗑️ Delete</a>
+    </div>
+  </div>
+{% empty %}
+  <div class="alert alert-warning">No tasks yet. Add one above!</div>
 {% endfor %}
+
+{% endblock %}
